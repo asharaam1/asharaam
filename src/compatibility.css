@@ -1,0 +1,29 @@
+/* Cross-browser compatibility fixes */
+
+/* Fix for user-select */
+.user-select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Fix for text-size-adjust */
+.text-size-adjust-100 {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Fix for backdrop-filter */
+.backdrop-blur {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* Fix for print-color-adjust */
+.print-color-adjust {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
