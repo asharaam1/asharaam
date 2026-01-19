@@ -12,7 +12,7 @@ const Projects = () => {
       tech: ["Next.js", "Firebase", "Cloudinary", "Node.js"],
       githubUrl: "https://github.com/asharaam1/donation-user-web",
       liveUrl: "https://lifthumanity.vercel.app/",
-      image: "assets/images/project-placeholder.jpg",
+      image: "/assets/images/project-placeholder.jpg",
     },
   ]);
 
