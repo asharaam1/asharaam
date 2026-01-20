@@ -1,9 +1,9 @@
-import emailjs from 'emailjs-com';
+import emailjs from "@emailjs/browser";
 
 // Replace with your EmailJS service ID, template ID, and user ID
-const SERVICE_ID = process.env.SERVICE_ID;
-const TEMPLATE_ID = process.env.TEMPLATE_ID;
-const USER_ID = process.env.USER_ID;
+const SERVICE_ID = import.meta.env.SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.TEMPLATE_ID;
+const USER_ID = import.meta.env.USER_ID;
 
 export const sendEmail = async (formData) => {
   try {

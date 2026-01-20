@@ -1,165 +1,67 @@
-# Modern React Portfolio Website
+# Modern React Portfolio (Vite + React 19)
 
-![Portfolio Preview](https://via.placeholder.com/1200x630/3B82F6/FFFFFF?text=Modern+React+Portfolio)
+![Portfolio Preview](https://via.placeholder.com/1200x630/3B82F6/FFFFFF?text=Vite+React+Portfolio)
 
-A modern, responsive portfolio website built with React, Tailwind CSS, and Framer Motion. This portfolio showcases your skills, projects, and contact information with a clean, professional design and smooth animations.
+A lightning-fast portfolio built with **Vite 5** and **React 19** featuring modern animations, responsive design, and GitHub integration.
 
-## ✨ Features
+## 🚀 Quick Start
 
-- **Responsive Design**: Looks great on all devices from mobile to desktop
-- **Dark/Light Mode**: Toggle between dark and light themes
-- **Smooth Animations**: Powered by Framer Motion for fluid transitions and effects
-- **Dynamic GitHub Projects**: Automatically fetches and displays your GitHub repositories
-- **Interactive Map**: Shows your location using React Leaflet
-- **Contact Form**: Functional contact form with validation
-- **Availability Status**: Display your current hiring availability
-- **ChatBot**: Interactive chatbot for visitors
+```bash
+# Clone and install
+git clone https://github.com/asharaam1/asharaam.git
+cd asharaam
+npm install
 
-## 🛠️ Technologies Used
+# Setup environment
+cp .env.example .env.local
+# Edit .env.local with your API keys
 
-### Frontend
-- React 19
-- React Router v7
-- Tailwind CSS
-- Framer Motion
-- Heroicons
-- Headless UI
-
-### APIs & Services
-- GitHub API (for projects)
-- Leaflet (for maps)
-- EmailJS (for contact form)
-
-### Development Tools
-- Vite/React Scripts
-- PostCSS
-- Autoprefixer
-
-## 📋 Pages
-
-- **Home**: Introduction with hero section and tech stack preview
-- **About**: Personal information, bio, and downloadable resume
-- **Skills**: Categorized skills with proficiency levels and animations
-- **Projects**: GitHub projects with descriptions and links
-- **Contact**: Contact form, location map, working hours, and social links
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository
-   ```bash
-   git clone https://github.com/yourusername/portfolio-website.git
-   cd portfolio-website
-   ```
-
-2. Install dependencies
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. Create required directories and files
-   ```bash
-   mkdir -p public/assets/images/projects
-   ```
-
-4. Add your images to the following paths:
-   - `public/assets/images/profile.jpg` (for profile picture)
-   - `public/assets/images/about-me.jpg` (for about page)
-   - `public/assets/images/project-placeholder.jpg` (for projects)
-
-5. Start the development server
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
-
-6. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-## ⚙️ Configuration
-
-### Personalization
-
-1. Update personal information in:
-   - `src/pages/Home.jsx`
-   - `src/pages/About.jsx`
-   - `src/pages/Contact.jsx`
-   - `src/components/Footer.jsx`
-
-2. Update GitHub username in `src/pages/Projects.jsx`
-
-3. Customize skills in `src/pages/Skills.jsx`
-
-4. Modify theme colors in `tailwind.config.js`
-
-### Contact Form
-
-The contact form uses EmailJS. To make it functional:
-
-1. Create an account at [EmailJS](https://www.emailjs.com/)
-2. Set up your email service and template
-3. Update the configuration in `src/utils/emailService.js`
-
-## 📱 Responsive Design
-
-The portfolio is fully responsive with breakpoints for:
-- Mobile devices
-- Tablets
-- Desktops
-- Large screens
-
-## 🎨 Customization
-
-### Themes
-
-The site includes both light and dark modes that can be toggled by the user. Theme preferences are saved in local storage.
-
-### Colors
-
-The primary color scheme can be customized in `tailwind.config.js`:
-
-```js
-colors: {
-  primary: '#3B82F6',    // Sky Blue
-  secondary: '#9333EA',  // Purple
-  darkBg: '#0F172A',     // Very Dark Navy
-  lightBg: '#F9FAFB',    // Lightest Gray
-  darkText: '#E2E8F0',   // Slate-200
-},
+# Run dev server
+npm run dev
 ```
 
-## 🔍 SEO
+Open [http://localhost:5173](http://localhost:5173)
 
-To improve SEO for your portfolio:
+## 📦 Tech Stack
 
-1. Update the metadata in `public/index.html`
-2. Add a sitemap.xml file
-3. Include relevant meta tags for social sharing
+- **Vite 5** - Lightning-fast build tool
+- **React 19** - Latest React features
+- **Tailwind CSS 4** - Utility-first CSS
+- **Framer Motion** - Smooth animations
+- **GitHub API** - Dynamic project fetching
+- **EmailJS** - Contact form functionality
 
-## 📄 License
+## 🛠️ Environment Variables
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+```env
+VITE_GITHUB_TOKEN=your_token_here
+VITE_EMAILJS_PUBLIC_KEY=your_key
+VITE_EMAILJS_SERVICE_ID=your_service
+VITE_EMAILJS_TEMPLATE_ID=your_template
+```
 
-## 🤝 Contributing
+## 📁 Project Structure
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/portfolio-website/issues).
+```
+src/
+├── components/     # Reusable components
+├── pages/         # Page components (Home, About, etc.)
+├── hooks/         # Custom React hooks
+├── utils/         # Utility functions
+└── styles/        # Global styles
+```
 
-## 📧 Contact
+## 🚀 Deployment
 
-Your Name - your.email@example.com
+```bash
+# Build for production
+npm run build
 
-Project Link: [https://github.com/yourusername/portfolio-website](https://github.com/yourusername/portfolio-website)
+# Preview production build
+npm run preview
+```
 
----
+Deploy to **Vercel**, **Netlify**, or **GitHub Pages**.
 
-Made with ❤️ by [Your Name](https://github.com/yourusername)
+Made with ❤️ using Vite + React
 
-        

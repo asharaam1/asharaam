@@ -1,6 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3B82F6;
+  --color-secondary: #9333EA;
+  --color-dark-bg: #0F172A;
+  --color-light-bg: #F9FAFB;
+  --color-dark-text: #E2E8F0;
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background-image: linear-gradient(to right, #3B82F6, #9333EA);
+  }
+}
 
 body {
   margin: 0;
