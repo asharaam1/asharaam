@@ -34,10 +34,10 @@ Open [http://localhost:5173](http://localhost:5173)
 ## 🛠️ Environment Variables
 
 ```env
-VITE_GITHUB_TOKEN=your_token_here
-VITE_EMAILJS_PUBLIC_KEY=your_key
-VITE_EMAILJS_SERVICE_ID=your_service
-VITE_EMAILJS_TEMPLATE_ID=your_template
+VITE_GOOGLE_AI_API_KEY=your_google_ai_key
+EMAILJS_PUBLIC_KEY=your_key
+EMAILJS_SERVICE_ID=your_service
+EMAILJS_TEMPLATE_ID=your_template
 ```
 
 ## 📁 Project Structure

@@ -1,14 +1,18 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChatBubbleLeftRightIcon, XMarkIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChatBubbleLeftRightIcon,
+  XMarkIcon,
+  PaperAirplaneIcon,
+} from "@heroicons/react/24/outline";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { text: 'Hi there! How can I help you today?', isBot: true }
+    { text: "Hi there! How can I help you today?", isBot: true },
   ]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSendMessage = async (e) => {
@@ -23,15 +27,15 @@ const ChatBot = () => {
       timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
-    setInput('');
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
     setIsLoading(true);
 
     // Simulate AI response (replace with actual API call to OpenAI/Gemini)
     // setTimeout(() => {
-    //   const botMessage = { 
-    //     text: `This is a placeholder response. In a real implementation, this would be connected to OpenAI or Gemini API.`, 
-    //     isBot: true 
+    //   const botMessage = {
+    //     text: `This is a placeholder response. In a real implementation, this would be connected to OpenAI or Gemini API.`,
+    //     isBot: true
     //   };
     //   setMessages(prev => [...prev, botMessage]);
     //   setIsLoading(false);
@@ -43,7 +47,7 @@ const ChatBot = () => {
     //     method: 'POST',
     //     headers: {
     //       'Content-Type': 'application/json',
-    //       'Authorization': `Bearer ${process.env.REACT_APP_AI_API_KEY}`
+    //       'Authorization': `Bearer ${process.env.GOOGLE_AI_API_KEY}`
     //     },
     //     body: JSON.stringify({ prompt: input })
     //   });
@@ -57,8 +61,10 @@ const ChatBot = () => {
     // }
 
     try {
-      const genAI = new GoogleGenerativeAI(import.meta.env.REACT_APP_AI_API_KEY);
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      const genAI = new GoogleGenerativeAI(
+        import.meta.env.VITE_GOOGLE_AI_API_KEY,
+      );
+      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
       const result = await model.generateContent(input);
       const text = result.response.text();
       const botMessage = {
@@ -68,10 +74,12 @@ const ChatBot = () => {
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, botMessage]);
-    } catch {
+    } catch (error) {
+      console.error("Gemini Error:", error);
       const errorMessage = {
         text: "❌ Sorry, I encountered an error. Please try again.",
         sender: "bot",
+        isBot: true,
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMessage]);
@@ -90,9 +98,11 @@ const ChatBot = () => {
         className="bg-gradient-primary text-white p-3 rounded-full shadow-lg"
         aria-label="Open chat"
       >
-        {isOpen ?
-          <XMarkIcon className="w-6 h-6" /> :
-          <ChatBubbleLeftRightIcon className="w-6 h-6" />}
+        {isOpen ? (
+          <XMarkIcon className="w-6 h-6" />
+        ) : (
+          <ChatBubbleLeftRightIcon className="w-6 h-6" />
+        )}
       </motion.button>
 
       {/* Chat Window */}
@@ -114,12 +124,14 @@ const ChatBot = () => {
               {messages.map((message, index) => (
                 <div
                   key={index}
-                  className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}
+                  className={`flex ${message.isBot ? "justify-start" : "justify-end"}`}
                 >
                   <div
-                    className={`max-w-[80%] p-3 rounded-lg ${message.isBot ?
-                      'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-tl-none' :
-                      'bg-primary text-white rounded-tr-none'}`}
+                    className={`max-w-[80%] p-3 rounded-lg ${
+                      message.isBot
+                        ? "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-tl-none"
+                        : "bg-primary text-white rounded-tr-none"
+                    }`}
                   >
                     {message.text}
                   </div>
@@ -139,7 +151,10 @@ const ChatBot = () => {
             </div>
 
             {/* Chat Input */}
-            <form onSubmit={handleSendMessage} className="border-t border-gray-200 dark:border-gray-800 p-4 flex">
+            <form
+              onSubmit={handleSendMessage}
+              className="border-t border-gray-200 dark:border-gray-800 p-4 flex"
+            >
               <input
                 type="text"
                 value={input}

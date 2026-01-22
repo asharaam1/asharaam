@@ -21,7 +21,7 @@ const AIChatbot = () => {
   const toggleChatbot = () => {
     setIsOpen(!isOpen);
     if (!isOpen && messages.length === 0) {
-      // Add welcome message when first opened
+      // welcome message when first opened
       setTimeout(() => {
         setMessages([
           {
