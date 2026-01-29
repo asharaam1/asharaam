@@ -9,10 +9,26 @@ const Projects = () => {
       name: "Lift Humanity",
       description:
         "A social impact platform focused on community upliftment, awareness, and humanitarian initiatives. Built to connect people, share resources, and promote causes that improve lives.",
-      tech: ["Next.js", "Firebase", "Cloudinary", "Node.js"],
+      tech: ["Next.js", "Tailwind CSS", "Firebase", "Cloudinary", "Vercel"],
       githubUrl: "https://github.com/asharaam1/donation-user-web",
       liveUrl: "https://lifthumanity.vercel.app/",
       image: "/assets/projects/project-placeholder.jpg",
+    },
+    {
+      id: 2,
+      name: "Budget Luxe",
+      description:
+        "Budget Luxe is a modern e-commerce website focused on showcasing affordable luxury products. The platform features a clean, responsive UI, smooth navigation, and optimized product browsing to enhance user shopping experience across all devices.",
+      tech: [
+        "Next.js",
+        "Tailwind CSS",
+        "Firebase",
+        "Cloudinary",
+        "Vercel",
+      ],
+      githubUrl: "https://github.com/asharaam1/budget-luxe",
+      liveUrl: "https://budgetluxe.vercel.app/",
+      image: "/assets/projects/budgetluxe.png",
     },
   ]);
 

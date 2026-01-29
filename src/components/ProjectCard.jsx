@@ -1,7 +1,15 @@
-import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { useState } from "react";
+
+const TECH_LIMIT = 4;
 
 const ProjectCard = ({ project }) => {
+  const [showMore, setShowMore] = useState(false);
+
+  const visibleTech = project.tech.slice(0, TECH_LIMIT);
+  const extraTech = project.tech.slice(TECH_LIMIT);
+
   return (
     <motion.div 
       whileHover={{ y: -5 }}
@@ -41,44 +49,91 @@ const ProjectCard = ({ project }) => {
         <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
           {project.name}
         </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">
-          {project.description}
-        </p>
-        
+
+        {project.description && (
+          <details className="mb-4">
+            <summary className="cursor-pointer text-gray-600 dark:text-gray-300 hover:text-primary">
+              {project.description.length > 120
+                ? `${project.description.substring(0, 120)}...`
+                : project.description}
+            </summary>
+            <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">
+              {project.description}
+            </p>
+          </details>
+        )}
+
+        {/* Tech badges */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.tech.map((tech, index) => (
-            <span 
+          {visibleTech.map((tech, index) => (
+            <span
               key={index}
               className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm"
             >
               {tech}
             </span>
           ))}
+
+          {extraTech.length > 0 && (
+            <button
+              onClick={() => setShowMore(true)}
+              className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition"
+            >
+              +{extraTech.length} more
+            </button>
+          )}
         </div>
-        
+
         <div className="flex gap-4">
           {project.githubUrl && (
-            <a 
+            <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+              className="flex items-center gap-2 hover:text-primary"
             >
               <FaGithub /> Code
             </a>
           )}
           {project.liveUrl && (
-            <a 
+            <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+              className="flex items-center gap-2 hover:text-primary"
             >
               <FaExternalLinkAlt /> Live Demo
             </a>
           )}
         </div>
       </div>
+
+      {/* Popup Modal */}
+      {showMore && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white dark:bg-darkCard p-6 rounded-xl max-w-md w-full">
+            <h4 className="text-lg font-bold mb-3">All Technologies</h4>
+
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.tech.map((tech, index) => (
+                <span
+                  key={index}
+                  className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <button
+              onClick={() => setShowMore(false)}
+              className="mt-2 px-4 py-2 bg-primary text-white rounded-lg"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 };
