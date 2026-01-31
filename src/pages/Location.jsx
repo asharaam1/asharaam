@@ -53,11 +53,11 @@ const Location = () => {
             <div className="space-y-3">
               <div className="flex justify-between">
                 <span className="text-gray-600 dark:text-gray-400">Monday - Friday</span>
-                <span className="font-medium text-gray-900 dark:text-darkText">9:00 AM - 5:00 PM</span>
+                <span className="font-medium text-gray-900 dark:text-darkText">03:00 PM - 11:00 PM</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600 dark:text-gray-400">Saturday</span>
-                <span className="font-medium text-gray-900 dark:text-darkText">10:00 AM - 2:00 PM</span>
+                <span className="font-medium text-gray-900 dark:text-darkText">09:00 AM - 05:00 PM</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600 dark:text-gray-400">Sunday</span>
