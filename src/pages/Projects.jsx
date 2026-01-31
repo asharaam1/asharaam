@@ -19,16 +19,26 @@ const Projects = () => {
       name: "Budget Luxe",
       description:
         "Budget Luxe is a modern e-commerce website focused on showcasing affordable luxury products. The platform features a clean, responsive UI, smooth navigation, and optimized product browsing to enhance user shopping experience across all devices.",
-      tech: [
-        "Next.js",
-        "Tailwind CSS",
-        "Firebase",
-        "Cloudinary",
-        "Vercel",
-      ],
+      tech: ["Next.js", "Tailwind CSS", "Firebase", "Cloudinary", "Vercel"],
       githubUrl: "https://github.com/asharaam1/budget-luxe",
       liveUrl: "https://budgetluxe.vercel.app/",
       image: "/assets/projects/budgetluxe.png",
+    },
+    {
+      id: 3,
+      name: "SmartChat AI",
+      description:
+        "A modern AI chatbot built with React and Gemini API that supports real-time messaging, smooth UI interactions, API-based intelligent responses, and responsive design optimized for all devices.",
+      tech: [
+        "React.js",
+        "Tailwind CSS",
+        "Gemini API",
+        "JavaScript",
+        "Vercel",
+      ],
+      githubUrl: "https://github.com/asharaam1/My-ChatBot",
+      liveUrl: "https://smartchat-gem.vercel.app/",
+      image: "/assets/projects/smartchatai.png",
     },
   ]);
 
