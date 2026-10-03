@@ -95,7 +95,7 @@ const Header = () => {
 
           {/* Resume Button */}
           <a
-            href="/resume.pdf"
+            href="/public/cv/ASHA_RAM_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 rounded-md bg-gradient-primary text-white font-medium hover:opacity-90 transition-opacity"
